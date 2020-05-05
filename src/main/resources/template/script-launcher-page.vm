@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <title>Power Groovy - Script Launcher</title>
+    <meta name="decorator" content="atl.general"/>
+
+    $webResourceManager.requireResourcesForContext("script-launcher-page-context")
+</head>
+<body class="">
+<div id="page">
+    <section id="content" role="main">
+        <header class="aui-page-header">
+            <div class="aui-page-header-inner">
+                <div class="aui-page-header-main">
+                    <h1>Power Groovy - Script Launcher</h1>
+                </div>
+                <div class="aui-page-header-actions">
+                    <div class="aui-buttons">
+                        <button id="script-run-btn" class="aui-button aui-button-primary">Run Script</button>
+                        <button id="script-check-btn" class="aui-button">Check syntax</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="aui-page-panel">
+            <div class="aui-page-panel-inner">
+                <section class="aui-page-panel-content">
+
+
+                    <div class="aui-group">
+                        <div class="aui-item">
+                        </div>
+                        <div class="aui-item" style="width: 80%;">
+                            <div id="groovy-script-container" rows="15"></div>
+                        </div>
+                        <div class="aui-item">
+                        </div>
+                    </div>
+
+
+                </section>
+            </div>
+        </div>
+
+        <div id="execution-indicator" class="aui-progress-indicator" style="display: none">
+            <span class="aui-progress-indicator-value"></span>
+        </div>
+        <div id="before-result-placeholder"></div>
+        <div id="result-container" style="display: none">
+        </div>
+        <div id="error-container" style="display: none">
+        </div>
+    </section>
+    <footer id="footer" role="contentinfo">
+        <section class="footer-body">
+        </section>
+    </footer>
+</div>
+
+<script src="//ajaxorg.github.io/ace-builds/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>

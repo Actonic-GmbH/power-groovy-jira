@@ -1,0 +1,21 @@
+#groovy-script-container {
+    width: 100%;
+    position: relative;
+    height: 400px;
+}
+
+#result-container {
+    font-family: Courier;
+    color: #CCCCCC;
+    background: #000000;
+    padding: 10px;
+    margin: 20px;
+}
+
+#error-container {
+    font-family: Courier;
+    color: #DDD;
+    background: darkred;
+    padding: 10px;
+    margin: 20px;
+}

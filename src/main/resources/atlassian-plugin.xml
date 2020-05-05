@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">image/icon-logo.png</param>
+        <param name="plugin-logo">images/icon-logo.png</param>
+    </plugin-info>
+
+    <resource type="i18n" name="i18n" location="power-groovy"/>
+
+    <component key="GroovyScriptService"
+               class="de.actonic.jira.pg.component.GroovyScriptService"/>
+
+    <component-import key="userManager" interface="com.atlassian.sal.api.user.UserManager"/>
+    <component-import key="ApplicationProperties" interface="com.atlassian.sal.api.ApplicationProperties"/>
+    <component-import key="PluginAccessor" interface="com.atlassian.plugin.PluginAccessor"/>
+    <component-import key="PluginController" interface="com.atlassian.plugin.PluginController"/>
+    <component-import key="PluginSettingsFactory"
+                      interface="com.atlassian.sal.api.pluginsettings.PluginSettingsFactory"/>
+    <component-import key="ComponentLocator" interface="com.atlassian.sal.api.component.ComponentLocator"/>
+
+    <web-resource key="script-launcher-page-resources" name="script-launcher-page-resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:aui-progress-indicator</dependency>
+
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+
+        <resource type="download" name="script-launcher.css" location="/css/script-launcher.css"/>
+
+        <resource type="download" name="flags.js" location="/js/util/flags.js"/>
+        <resource type="download" name="rest.js" location="/js/script-launcher/rest.js"/>
+        <resource type="download" name="editor.js" location="/js/script-launcher/editor.js"/>
+        <resource type="download" name="application.js" location="/js/script-launcher/application.js"/>
+        <resource type="download" name="script-launcher-page.js" location="/js/script-launcher-page.js"/>
+
+        <context>script-launcher-page-context</context>
+    </web-resource>
+
+    <rest key="power-groovy-rest" path="/power-groovy" version="1.0"></rest>
+
+    <web-section key="power-groovy-for-jira-web-section" location="admin_plugins_menu" i18n-name-key="power-groovy-for-jira-web-section" weight="50">
+        <label key="power-groovy-for-jira-web-section-label" />
+    </web-section>
+
+    <web-item key="power-groovy-for-jira-web-item"
+              section="admin_plugins_menu/power-groovy-for-jira-web-section"
+              i18n-name-key="power-groovy-for-jira-web-item"
+              weight="10">
+        <label key="power-groovy-for-jira-web-item-label" />
+        <link>/secure/admin/power-groovy-script-launcher.jspa</link>
+    </web-item>
+
+    <webwork1 key="power-groovy-for-jira-webwork-actions" name="power-groovy-for-jira-webwork-actions" class="java.lang.Object" roles-required="admin">
+        <actions>
+            <action name="de.actonic.jira.pg.webwork.ScriptLauncherPageAction" alias="power-groovy-script-launcher"
+                    roles-required="admin">
+                <view name="success">/template/script-launcher-page.vm</view>
+            </action>
+        </actions>
+    </webwork1>
+
+</atlassian-plugin>
