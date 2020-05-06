@@ -3,7 +3,7 @@ The app for Atlassian Jira Server. Run Groovy scripts, automate routine tasks, c
 Check out our apps on marketplace https://marketplace.atlassian.com/vendors/1214306/actonic-gmbh
 
 # Start up Jira with the app installed
-You can use the atlas-run command to run the Jira application and install the app. Then we'll confirm that Jira has started with the plugin created in Step 1 already installed.   
+You can use the atlas-run command to run the Jira application and install the app.
 
 Change to the 'power-groovy-jira' directory and enter the following command: 
 
@@ -35,3 +35,7 @@ A Welcome dialog will appear and you'll be asked to configure some basic Jira se
 
 Type gg, and then type `Power Groovy`. From the list that appears, select `Script Launcher Power Groovy`. 
 (Alternatively you can click on the cog icon at the top of the screen to open the administration dialog, and then select Manage apps and finally when the Atlassian Marketplace Administration page opens, select Script Launcher from left-side menu). 
+
+# Contact us
+Support portal - https://actonic.atlassian.net/servicedesk/customer/portal/8
+
